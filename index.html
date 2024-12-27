@@ -133,9 +133,25 @@
             text-align: center;
         }
 
+        /* WhatsApp Styles */
+        .whatsapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #25D366;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.05);
+        }
+
         .whatsapp img {
-            width: 40px;
-            vertical-align: middle;
+            width: 30px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -192,7 +208,7 @@
         <!-- WhatsApp Section -->
         <div class="whatsapp">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            <a href="https://wa.me/8801778682815" target="_blank">Contact on WhatsApp</a>
+            <a href="https://wa.me/8801778682815" target="_blank" style="color: white; text-decoration: none;">Contact on WhatsApp</a>
         </div>
     </div>
 </body>
