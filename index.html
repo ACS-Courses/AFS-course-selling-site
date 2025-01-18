@@ -107,80 +107,98 @@
 
         .courses {
             display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 10px;
-            scroll-snap-type: x mandatory;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
             margin: 20px 0;
         }
 
         .course {
             padding: 20px;
-            border-radius: 8px;
-            width: 250px;
+            border-radius: 10px;
+            width: 200px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            scroll-snap-align: start;
             color: #fff;
             text-align: center;
-            background-color: #33c1ff;
+            background: linear-gradient(45deg, #33c1ff, #0099cc);
+            cursor: pointer;
+            animation: bounce 1.5s infinite alternate;
         }
 
-        .course:nth-child(even) {
-            background-color: #8bc34a;
+        .course:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
         }
 
-        .contact, .whatsapp {
-            margin: 20px auto;
-            color: #fff;
-            text-align: center;
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
         }
 
-        /* WhatsApp Styling */
-        .whatsapp {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .whatsapp img {
-            width: 40px;
-            margin-right: 10px;
-        }
-
-        .whatsapp a {
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-            border: 1px solid #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #25d366;
-            display: flex;
-            align-items: center;
-        }
-
-        .whatsapp a:hover {
-            background-color: #128c7e;
-        }
-
-        /* Floating Promo Page */
+        /* Promo Page */
         #promo-page {
             display: none;
-            position: absolute;
-            top: 20%;
+            position: fixed;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%) scale(0);
+            width: 80%;
+            max-width: 400px;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
-            z-index: 1000;
+            text-align: center;
+            border-radius: 10px;
+            z-index: 2000;
+            animation: fadeIn 0.5s forwards;
         }
 
-        #loading {
+        @keyframes fadeIn {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        #promo-loading {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #promo-code {
+            font-size: 24px;
+            font-weight: bold;
             display: none;
+        }
+
+        #copy-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #33c1ff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #copy-btn:hover {
+            background-color: #007acc;
+        }
+
+        /* Page Overlay */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
         }
     </style>
 </head>
@@ -199,75 +217,46 @@
         <img class="logo" src="https://github.com/ACS-Courses/AFS-course-selling-site/blob/main/Picsart_24-12-27_21-24-11-024.png" alt="ACS Future School">
         <h1 class="headline">ACS Future School একাডেমিক প্রোগ্রাম ২০২৫</h1>
 
-        <!-- Video Section -->
-        <div class="video-container">
-            <iframe width="320" height="180" src="https://www.youtube.com/embed/vv2zHp82oFw" frameborder="0" allowfullscreen></iframe>
-        </div>
-
         <!-- Courses Section -->
         <div class="courses">
-            <div class="course">
-                <h3>৬ষ্ঠ শ্রেণি</h3>
-                <a href="https://cutt.ly/ae9DQZCW" target="_blank">ভর্তি হও</a>
-                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>৭ম শ্রেণি</h3>
-                <a href="https://cutt.ly/9e9DQmps" target="_blank">ভর্তি হও</a>
-                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>৮ম শ্রেণি</h3>
-                <a href="https://cutt.ly/ke9Dm6S8" target="_blank">ভর্তি হও</a>
-                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>৯ম শ্রেণি</h3>
-                <a href="https://cutt.ly/He9DmUD5" target="_blank">ভর্তি হও</a>
-                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>১০ম শ্রেণি</h3>
-                <a href="https://cutt.ly/ce9DhIBB" target="_blank">ভর্তি হও</a>
-                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="contact">
-            <h3>Contact Number:</h3>
-            <p><span>📞</span> +8801778682815</p>
-        </div>
-
-        <!-- WhatsApp Section -->
-        <div class="whatsapp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            <a href="https://wa.me/8801778682815" target="_blank">Contact on WhatsApp</a>
+            <div class="course" onclick="showPromo()">৬ষ্ঠ শ্রেণি</div>
+            <div class="course" onclick="showPromo()">৭ম শ্রেণি</div>
+            <div class="course" onclick="showPromo()">৮ম শ্রেণি</div>
+            <div class="course" onclick="showPromo()">৯ম শ্রেণি</div>
+            <div class="course" onclick="showPromo()">১০ম শ্রেণি</div>
         </div>
     </div>
 
-    <!-- Floating Promo Page Section -->
+    <!-- Promo Page -->
+    <div id="overlay" onclick="closePromo()"></div>
     <div id="promo-page">
-        <p>প্রোমো কোড: <strong id="promo-code">AFFEB</strong></p>
-        <button id="copy-btn" onclick="copyPromoCode()">কপি করুন</button>
-        <p id="loading">লোডিং...</p>
+        <div id="promo-loading">লোডিং...</div>
+        <div id="promo-code">AFFEB</div>
+        <button id="copy-btn" onclick="copyPromo()">কপি করুন</button>
     </div>
 
     <script>
         function showPromo() {
+            document.getElementById("overlay").style.display = "block";
             document.getElementById("promo-page").style.display = "block";
-            document.getElementById("loading").style.display = "block";
+            document.getElementById("promo-loading").style.display = "block";
+            document.getElementById("promo-code").style.display = "none";
+
             setTimeout(() => {
-                document.getElementById("loading").style.display = "none";
-                document.getElementById("promo-code").style.display = "inline";
-            }, 2000); // Simulate loading delay
+                document.getElementById("promo-loading").style.display = "none";
+                document.getElementById("promo-code").style.display = "block";
+            }, 2000);
         }
 
-        function copyPromoCode() {
-            var promoCode = document.getElementById("promo-code").innerText;
+        function closePromo() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("promo-page").style.display = "none";
+        }
+
+        function copyPromo() {
+            const promoCode = document.getElementById("promo-code").innerText;
             navigator.clipboard.writeText(promoCode).then(() => {
-                alert("প্রোমো কোড কপি করা হয়েছে!");
-                window.open("https://cutt.ly/ae9DQZCW", "_blank"); // Link will open automatically
+                alert("প্রোমো কোড কপি হয়েছে!");
             });
         }
     </script>
