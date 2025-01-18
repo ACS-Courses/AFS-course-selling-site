@@ -5,30 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACS Future School - একাডেমিক প্রোগ্রাম ২০২৫</title>
     <style>
-        /* Reset Styles */
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             height: 100%;
-            overflow-y: scroll;
+            overflow-x: hidden;
         }
 
-        /* Background Container */
         .background {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             background: linear-gradient(120deg, #6a11cb, #2575fc);
+            z-index: -1;
         }
 
-        /* Bubble Animation */
         .bubble {
             position: absolute;
             bottom: -100px;
-            width: 50px;
-            height: 50px;
             background-color: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             animation: floatUp 10s infinite ease-in-out;
@@ -38,7 +33,6 @@
         .bubble:nth-child(2) { left: 40%; width: 60px; height: 60px; animation-duration: 10s; }
         .bubble:nth-child(3) { left: 60%; width: 100px; height: 100px; animation-duration: 14s; }
         .bubble:nth-child(4) { left: 80%; width: 40px; height: 40px; animation-duration: 8s; }
-        .bubble:nth-child(5) { left: 50%; width: 70px; height: 70px; animation-duration: 11s; }
 
         @keyframes floatUp {
             0% { transform: translateY(0) scale(1); opacity: 0.5; }
@@ -46,14 +40,10 @@
             100% { transform: translateY(-120vh) scale(0.8); opacity: 0; }
         }
 
-        /* Main Content Styles */
         .container {
-            position: relative;
-            z-index: 1;
             text-align: center;
-            padding-top: 20px;
-            padding-bottom: 40px;
-            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
         }
 
         .logo {
@@ -62,96 +52,98 @@
 
         .headline {
             font-size: 36px;
-            color: #fff;
             margin: 20px 0;
         }
 
-        /* Courses Section */
+        .video-container iframe {
+            width: 320px;
+            height: 180px;
+            border-radius: 10px;
+        }
+
         .courses {
             display: flex;
             overflow-x: auto;
             gap: 15px;
-            padding: 10px;
-            scroll-snap-type: x mandatory;
+            padding: 20px 10px;
             margin: 20px 0;
         }
 
         .course {
-            padding: 20px;
-            border-radius: 8px;
-            width: 250px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            scroll-snap-align: start;
-            color: #fff;
+            background: #33c1ff;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            background-color: #33c1ff;
-            position: relative;
+            flex: 0 0 auto;
+            width: 200px;
             animation: slideIn 1s ease-in-out;
         }
 
-        .course:nth-child(even) { background-color: #8bc34a; }
+        .course:nth-child(even) { background: #8bc34a; }
 
-        @keyframes slideIn {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* Promo Page */
-        #promo-page {
-            display: none;
-            position: fixed;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            border-radius: 10px;
-            text-align: center;
-            z-index: 1000;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        #promo-loading { display: block; }
-
-        /* Buttons */
         .btn {
+            margin-top: 10px;
+            padding: 10px;
             background: #ff5722;
             color: white;
-            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
-        .btn:hover {
-            background: #e64a19;
+        .btn:hover { background: #e64a19; }
+
+        /* Promo Page */
+        #promo-page {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
         }
 
         .btn-close {
             background: transparent;
             color: white;
-            font-size: 16px;
-            cursor: pointer;
+            font-size: 18px;
+            border: none;
             margin-top: 10px;
-            text-decoration: underline;
+            cursor: pointer;
         }
 
+        .btn-close:hover { text-decoration: underline; }
+
         .contact, .whatsapp {
-            margin: 20px auto;
-            color: #fff;
-            text-align: center;
+            margin-top: 20px;
+        }
+
+        .whatsapp img {
+            width: 30px;
+            margin-right: 5px;
+        }
+
+        .whatsapp a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background: #25d366;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .whatsapp a:hover {
+            background: #128c7e;
         }
     </style>
 </head>
 <body>
     <div class="background">
-        <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -162,63 +154,49 @@
         <img class="logo" src="https://github.com/ACS-Courses/AFS-course-selling-site/blob/main/Picsart_24-12-27_21-24-11-024.png" alt="ACS Future School">
         <h1 class="headline">ACS Future School একাডেমিক প্রোগ্রাম ২০২৫</h1>
 
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/vv2zHp82oFw" allowfullscreen></iframe>
+        </div>
+
         <div class="courses">
             <div class="course">
                 <h3>৬ষ্ঠ শ্রেণি</h3>
-                <a href="https://cutt.ly/ae9DQZCW">ভর্তি হও</a>
+                <a href="https://cutt.ly/ae9DQZCW" class="btn">ভর্তি হও</a>
                 <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৭ম শ্রেণি</h3>
-                <a href="https://cutt.ly/9e9DQmps">ভর্তি হও</a>
-                <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>৮ম শ্রেণি</h3>
-                <a href="https://cutt.ly/ke9Dm6S8">ভর্তি হও</a>
-                <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>৯ম শ্রেণি</h3>
-                <a href="https://cutt.ly/He9DmUD5">ভর্তি হও</a>
-                <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
-            </div>
-            <div class="course">
-                <h3>১০ম শ্রেণি</h3>
-                <a href="https://cutt.ly/ce9DhIBB">ভর্তি হও</a>
+                <a href="https://cutt.ly/9e9DQmps" class="btn">ভর্তি হও</a>
                 <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
         </div>
 
         <div class="contact">
-            <h3>Contact Number:</h3>
+            <h3>যোগাযোগ করুন:</h3>
             <p>📞 +8801778682815</p>
         </div>
 
         <div class="whatsapp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30">
-            <a href="https://wa.me/8801778682815">Contact on WhatsApp</a>
+            <a href="https://wa.me/8801778682815">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                WhatsApp-এ যোগাযোগ করুন
+            </a>
         </div>
     </div>
 
     <div id="promo-page">
-        <p id="promo-loading">লোড হচ্ছে...</p>
         <p>প্রোমো কোড: <strong>AFFEB</strong></p>
         <button class="btn" onclick="copyPromo()">কপি করুন</button>
-        <button class="btn-close" onclick="hidePromo()">বন্ধ করুন</button>
+        <button class="btn-close" onclick="closePromo()">বন্ধ করুন</button>
     </div>
 
     <script>
         function showPromo() {
-            const promoPage = document.getElementById('promo-page');
-            promoPage.style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('promo-loading').style.display = 'none';
-            }, 2000);
+            document.getElementById("promo-page").style.display = "block";
         }
 
-        function hidePromo() {
-            document.getElementById('promo-page').style.display = 'none';
+        function closePromo() {
+            document.getElementById("promo-page").style.display = "none";
         }
 
         function copyPromo() {
