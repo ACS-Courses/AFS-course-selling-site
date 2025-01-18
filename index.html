@@ -100,23 +100,32 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
 
-        .btn-close {
-            background: transparent;
-            color: white;
+        #promo-page p {
             font-size: 18px;
-            border: none;
+            margin-bottom: 10px;
+        }
+
+        #promo-page button {
             margin-top: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        .btn-close:hover { text-decoration: underline; }
+        #promo-page button:hover {
+            background: #0056b3;
+        }
 
         .contact, .whatsapp {
             margin-top: 20px;
@@ -142,7 +151,7 @@
         }
     </style>
 </head>
-<body>
+<body onclick="closePromo(event)">
     <div class="background">
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -162,12 +171,27 @@
             <div class="course">
                 <h3>৬ষ্ঠ শ্রেণি</h3>
                 <a href="https://cutt.ly/ae9DQZCW" class="btn">ভর্তি হও</a>
-                <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৭ম শ্রেণি</h3>
                 <a href="https://cutt.ly/9e9DQmps" class="btn">ভর্তি হও</a>
-                <button class="btn" onclick="showPromo()">প্রোমো কোড দেখুন</button>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>৮ম শ্রেণি</h3>
+                <a href="https://cutt.ly/ke9Dm6S8" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>৯ম শ্রেণি</h3>
+                <a href="https://cutt.ly/He9DmUD5" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>১০ম শ্রেণি</h3>
+                <a href="https://cutt.ly/ce9DhIBB" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
         </div>
 
@@ -184,19 +208,21 @@
         </div>
     </div>
 
-    <div id="promo-page">
+    <div id="promo-page" onclick="event.stopPropagation()">
         <p>প্রোমো কোড: <strong>AFFEB</strong></p>
-        <button class="btn" onclick="copyPromo()">কপি করুন</button>
-        <button class="btn-close" onclick="closePromo()">বন্ধ করুন</button>
+        <button onclick="copyPromo()">কপি করুন</button>
     </div>
 
     <script>
-        function showPromo() {
+        function showPromo(event) {
+            event.stopPropagation();
             document.getElementById("promo-page").style.display = "block";
         }
 
-        function closePromo() {
-            document.getElementById("promo-page").style.display = "none";
+        function closePromo(event) {
+            if (event.target.id !== "promo-page") {
+                document.getElementById("promo-page").style.display = "none";
+            }
         }
 
         function copyPromo() {
