@@ -123,18 +123,6 @@
             text-align: center;
             background-color: #33c1ff;
             cursor: pointer;
-            animation: fadeIn 0.8s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         .course:hover {
@@ -148,7 +136,7 @@
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(0);
             width: 80%;
             max-width: 400px;
             padding: 20px;
@@ -157,6 +145,16 @@
             text-align: center;
             border-radius: 10px;
             z-index: 2000;
+            animation: zoomIn 0.5s forwards;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
 
         #promo-loading {
@@ -196,6 +194,35 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 1500;
         }
+
+        /* WhatsApp Styling */
+        .whatsapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .whatsapp img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .whatsapp a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #25d366;
+            display: flex;
+            align-items: center;
+        }
+
+        .whatsapp a:hover {
+            background-color: #128c7e;
+        }
     </style>
 </head>
 <body>
@@ -225,6 +252,18 @@
             <div class="course" onclick="showPromo()">৮ম শ্রেণি</div>
             <div class="course" onclick="showPromo()">৯ম শ্রেণি</div>
             <div class="course" onclick="showPromo()">১০ম শ্রেণি</div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact">
+            <h3>Contact Number:</h3>
+            <p><span>📞</span> +8801778682815</p>
+        </div>
+
+        <!-- WhatsApp Section -->
+        <div class="whatsapp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            <a href="https://wa.me/8801778682815" target="_blank">Contact on WhatsApp</a>
         </div>
     </div>
 
@@ -257,7 +296,7 @@
         function copyPromo() {
             const promoCode = document.getElementById("promo-code").innerText;
             navigator.clipboard.writeText(promoCode).then(() => {
-                alert("প্রোমো কোড কপি হয়েছে!");
+                alert("Promo code কপি হয়েছে!");
             });
         }
     </script>
