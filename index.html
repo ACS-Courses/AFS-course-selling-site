@@ -163,6 +163,25 @@
         .whatsapp a:hover {
             background-color: #128c7e;
         }
+
+        /* Floating Promo Page */
+        #promo-page {
+            display: none;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+        }
+
+        #loading {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -189,23 +208,28 @@
         <div class="courses">
             <div class="course">
                 <h3>৬ষ্ঠ শ্রেণি</h3>
-                <a href="https://cutt.ly/ae9DQZCW">ভর্তি হও</a>
+                <a href="https://cutt.ly/ae9DQZCW" target="_blank">ভর্তি হও</a>
+                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৭ম শ্রেণি</h3>
-                <a href="https://cutt.ly/9e9DQmps">ভর্তি হও</a>
+                <a href="https://cutt.ly/9e9DQmps" target="_blank">ভর্তি হও</a>
+                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৮ম শ্রেণি</h3>
-                <a href="https://cutt.ly/ke9Dm6S8">ভর্তি হও</a>
+                <a href="https://cutt.ly/ke9Dm6S8" target="_blank">ভর্তি হও</a>
+                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৯ম শ্রেণি</h3>
-                <a href="https://cutt.ly/He9DmUD5">ভর্তি হও</a>
+                <a href="https://cutt.ly/He9DmUD5" target="_blank">ভর্তি হও</a>
+                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>১০ম শ্রেণি</h3>
-                <a href="https://cutt.ly/ce9DhIBB">ভর্তি হও</a>
+                <a href="https://cutt.ly/ce9DhIBB" target="_blank">ভর্তি হও</a>
+                <button onclick="showPromo()">প্রোমো কোড দেখুন</button>
             </div>
         </div>
 
@@ -221,5 +245,31 @@
             <a href="https://wa.me/8801778682815" target="_blank">Contact on WhatsApp</a>
         </div>
     </div>
+
+    <!-- Floating Promo Page Section -->
+    <div id="promo-page">
+        <p>প্রোমো কোড: <strong id="promo-code">AFFEB</strong></p>
+        <button id="copy-btn" onclick="copyPromoCode()">কপি করুন</button>
+        <p id="loading">লোডিং...</p>
+    </div>
+
+    <script>
+        function showPromo() {
+            document.getElementById("promo-page").style.display = "block";
+            document.getElementById("loading").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("promo-code").style.display = "inline";
+            }, 2000); // Simulate loading delay
+        }
+
+        function copyPromoCode() {
+            var promoCode = document.getElementById("promo-code").innerText;
+            navigator.clipboard.writeText(promoCode).then(() => {
+                alert("প্রোমো কোড কপি করা হয়েছে!");
+                window.open("https://cutt.ly/ae9DQZCW", "_blank"); // Link will open automatically
+            });
+        }
+    </script>
 </body>
 </html>
