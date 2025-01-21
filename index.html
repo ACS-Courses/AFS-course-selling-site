@@ -150,50 +150,35 @@
             background: #128c7e;
         }
 
-        /* Promo Popup */
-        #promo-popup {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
+        /* New Animation for Promo Page */
+        .discount-animation {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff5722;
+            opacity: 0;
+            animation: showDiscount 7s forwards;
         }
 
-        #promo-popup-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 80%;
+        @keyframes showDiscount {
+            0% { opacity: 0; }
+            25% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+            75% { opacity: 0.9; }
+            100% { opacity: 1; }
         }
 
-        #promo-popup-content h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+        .discount-number {
+            display: inline-block;
+            font-size: 48px;
+            opacity: 0;
+            animation: countUp 5s forwards;
         }
 
-        #promo-popup-content p {
-            font-size: 18px;
-            margin-bottom: 20px;
+        @keyframes countUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
-        #promo-popup-content button {
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #promo-popup-content button:hover {
-            background: #0056b3;
-        }
     </style>
 </head>
 <body onclick="closePromo(event)">
@@ -204,25 +189,60 @@
         <div class="bubble"></div>
     </div>
 
-    <!-- Promo Popup -->
-    <div id="promo-popup">
-        <div id="promo-popup-content">
-            <h2>বিশেষ অফার!</h2>
-            <p>সর্বোচ্চ ৪০% পর্যন্ত ছাড়।</p>
+    <div class="container">
+        <img class="logo" src="https://images.app.goo.gl/5GcJgU6DdqQMELXf8" alt="ACS Future School">
+        <h1 class="headline">ACS Future School একাডেমিক প্রোগ্রাম ২০২৫</h1>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/vv2zHp82oFw" allowfullscreen></iframe>
+        </div>
+
+        <div class="courses">
+            <div class="course">
+                <h3>৬ষ্ঠ শ্রেণি</h3>
+                <a href="https://cutt.ly/re3JMgu3" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>৭ম শ্রেণি</h3>
+                <a href="https://cutt.ly/ye3JML8w" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>৮ম শ্রেণি</h3>
+                <a href="https://cutt.ly/ze3J1oej" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>৯ম শ্রেণি</h3>
+                <a href="https://cutt.ly/0e3J1DoU" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+            <div class="course">
+                <h3>১০ম শ্রেণি</h3>
+                <a href="https://cutt.ly/ye3J0iZM" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h3>যোগাযোগ করুন:</h3>
+            <p>📞 +8801778682815</p>
+        </div>
+
+        <div class="whatsapp">
+            <a href="https://wa.me/8801778682815">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                WhatsApp-এ যোগাযোগ করুন
+            </a>
         </div>
     </div>
 
-    <script>
-        // Promo popup auto-close after 5 seconds
-        setTimeout(() => {
-            document.getElementById("promo-popup").style.display = "none";
-        }, 5000);
-    </script>
-<div id="promo-page" onclick="event.stopPropagation()">
-        <p>প্রোমো কোড:
-(এই কোডটা এই লিংকের("ভর্তি হও")জন্যই প্রযোজ্য)
-
-<strong>AFFEB</strong></p>
+    <div id="promo-page" onclick="event.stopPropagation()">
+        <p>প্রোমো কোড:</p>
+        <p class="discount-animation">আপনি পাচ্ছেন <span class="discount-number">40%</span> ছাড়!</p>
+        <p>(এই কোডটা এই লিংকের("ভর্তি হও")জন্যই প্রযোজ্য)</p>
+        <strong>AFFEB</strong>
         <button onclick="copyPromo()">কপি করুন</button>
     </div>
 
@@ -230,6 +250,9 @@
         function showPromo(event) {
             event.stopPropagation();
             document.getElementById("promo-page").style.display = "block";
+            setTimeout(function() {
+                document.querySelector(".discount-number").textContent = "40%";
+            }, 2000); // after 2 seconds, display the discount value
         }
 
         function closePromo(event) {
