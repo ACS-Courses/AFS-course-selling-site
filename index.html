@@ -39,8 +39,7 @@
             50% { opacity: 1; }
             100% { transform: translateY(-120vh) scale(0.8); opacity: 0; }
         }
-
-        .promo-modal {
+.promo-modal {
             position: fixed;
             top: 0;
             left: 0;
@@ -124,6 +123,7 @@
             text-align: center;
             flex: 0 0 auto;
             width: 200px;
+            animation: slideIn 1s ease-in-out;
         }
 
         .course:nth-child(even) { background: #8bc34a; }
@@ -139,6 +139,40 @@
         }
 
         .btn:hover { background: #e64a19; }
+
+        /* Promo Page */
+        #promo-page {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        #promo-page p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #promo-page button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #promo-page button:hover {
+            background: #0056b3;
+        }
 
         .contact, .whatsapp {
             margin-top: 20px;
@@ -164,8 +198,8 @@
         }
     </style>
 </head>
-<body>
-    <!-- Promo Modal -->
+<body onclick="closePromo(event)">
+<!-- Promo Modal -->
     <div class="promo-modal" id="promoModal">
         <div class="promo-content">
             <h2>বিশেষ ছাড়!</h2>
@@ -173,8 +207,6 @@
             <button class="btn" onclick="closePromo()">এখনি শুরু করুন</button>
         </div>
     </div>
-
-    <!-- Background Animation -->
     <div class="background">
         <div class="bubble"></div>
         <div class="bubble"></div>
@@ -182,7 +214,6 @@
         <div class="bubble"></div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <img class="logo" src="https://images.app.goo.gl/5GcJgU6DdqQMELXf8" alt="ACS Future School">
         <h1 class="headline">ACS Future School একাডেমিক প্রোগ্রাম ২০২৫</h1>
@@ -195,22 +226,27 @@
             <div class="course">
                 <h3>৬ষ্ঠ শ্রেণি</h3>
                 <a href="https://cutt.ly/re3JMgu3" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৭ম শ্রেণি</h3>
                 <a href="https://cutt.ly/ye3JML8w" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৮ম শ্রেণি</h3>
                 <a href="https://cutt.ly/ze3J1oej" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>৯ম শ্রেণি</h3>
                 <a href="https://cutt.ly/0e3J1DoU" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
             <div class="course">
                 <h3>১০ম শ্রেণি</h3>
                 <a href="https://cutt.ly/ye3J0iZM" class="btn">ভর্তি হও</a>
+                <button class="btn" onclick="showPromo(event)">প্রোমো কোড দেখুন</button>
             </div>
         </div>
 
@@ -226,8 +262,7 @@
             </a>
         </div>
     </div>
-
-    <!-- Scripts -->
+<!-- Scripts -->
     <script>
         // Promo modal auto-close after 5 seconds
         setTimeout(() => {
@@ -236,6 +271,32 @@
 
         function closePromo() {
             document.getElementById("promoModal").style.display = "none";
+        }
+
+    <div id="promo-page" onclick="event.stopPropagation()">
+        <p>প্রোমো কোড:
+(এই কোডটা এই লিংকের("ভর্তি হও")জন্যই প্রযোজ্য)
+ 
+<strong>AFFEB</strong></p>
+        <button onclick="copyPromo()">কপি করুন</button>
+    </div>
+
+    <script>
+        function showPromo(event) {
+            event.stopPropagation();
+            document.getElementById("promo-page").style.display = "block";
+        }
+
+        function closePromo(event) {
+            if (event.target.id !== "promo-page") {
+                document.getElementById("promo-page").style.display = "none";
+            }
+        }
+</script>
+
+        function copyPromo() {
+            navigator.clipboard.writeText("AFFEB");
+            alert("প্রোমো কোড কপি করা হয়েছে!");
         }
     </script>
 </body>
