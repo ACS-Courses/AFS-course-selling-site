@@ -178,19 +178,6 @@
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; }
-        .slider-container { overflow: hidden; width: 100%; background: #f5f5f5; padding: 20px; }
-        .slider { display: flex; width: max-content; animation: scroll 10s linear infinite; }
-        .teacher-card { width: 200px; margin: 10px; padding: 10px; background: white; box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); text-align: center; border-radius: 10px; }
-        .teacher-card img { width: 100%; height: auto; border-radius: 50%; }
-        .teacher-card h3 { margin: 10px 0 5px; font-size: 18px; }
-        .teacher-card p { font-size: 14px; color: gray; }
-        
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
-        }
 
     </style>
 </head>
@@ -286,30 +273,6 @@
             navigator.clipboard.writeText("AFFEB");
             alert("প্রোমো কোড কপি করা হয়েছে!");
         }
-<div class="slider-container">
-        <div class="slider">
-            <div class="teacher-card">
-                <img src="teacher1.jpg" alt="শিক্ষক ১">
-                <h3>জন Doe</h3>
-                <p>গণিত শিক্ষক</p>
-            </div>
-            <div class="teacher-card">
-                <img src="teacher2.jpg" alt="শিক্ষক ২">
-                <h3>সারা রহমান</h3>
-                <p>বিজ্ঞান শিক্ষক</p>
-            </div>
-            <div class="teacher-card">
-                <img src="teacher3.jpg" alt="শিক্ষক ৩">
-                <h3>আলী হোসেন</h3>
-                <p>ইংরেজি শিক্ষক</p>
-            </div>
-            <div class="teacher-card">
-                <img src="teacher4.jpg" alt="শিক্ষক ৪">
-                <h3>তানিয়া ইসলাম</h3>
-                <p>বাংলা শিক্ষক</p>
-            </div>
-        </div>
-    </div>
     </script>
 </body>
 </html>
