@@ -364,5 +364,12 @@
             alert("প্রোমো কোড কপি করা হয়েছে!");
         }
     </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let slider = document.querySelector(".slider");
+    let clone = slider.innerHTML; // স্লাইডারের কনটেন্ট ক্লোন করা
+    slider.innerHTML += clone; // দুইবার কনটেন্ট রাখা যাতে স্ক্রল ঠিকমতো কাজ করে
+});
+</script>
 </body>
 </html>
