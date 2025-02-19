@@ -368,7 +368,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     let slider = document.querySelector(".slider");
     let clone = slider.innerHTML; // স্লাইডারের কনটেন্ট ক্লোন করা
-    slider.innerHTML += clone; // দুইবার কনটেন্ট রাখা যাতে স্ক্রল ঠিকমতো কাজ করে
+    slider.innerHTML += clone; // একই কনটেন্ট কপি করা যাতে লুপ ঠিকমতো চলে
+
+    let scrollAmount = 0; // স্ক্রল ট্র্যাক রাখার জন্য
+    function autoScroll() {
+        scrollAmount -= 1; // বাম দিকে স্ক্রল হবে
+        slider.style.transform = `translateX(${scrollAmount}px)`;
+
+        if (Math.abs(scrollAmount) >= slider.scrollWidth / 2) {
+            scrollAmount = 0; // স্ক্রল একবার শেষ হলে রিস্টার্ট করবে
+        }
+
+        requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
 });
 </script>
 </body>
