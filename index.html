@@ -205,6 +205,34 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
     </style>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কোর্স সম্পর্কিত প্রশ্নাবলী</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .faq {
+            max-width: 600px;
+            margin: auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .question {
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .answer {
+            display: none;
+            padding-top: 5px;
+        }
+    </style>
 </head>
 <body onclick="closePromo(event)">
     <div class="background">
@@ -385,5 +413,73 @@ document.addEventListener("DOMContentLoaded", function () {
     autoScroll();
 });
 </script>
+<div class="faq">
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ১. কোর্সটি কীভাবে কিনবো?
+                <span>▼</span>
+            </div>
+            <div class="answer">কোর্সটি কেনার জন্য “ভর্তি হও” বাটনে ক্লিক করো। যদি ওয়েবসাইটে লগইন করা না থাকে, তাহলে লগইন সম্পন্ন করে পুনরায় “ভর্তি হও” বাটনে ক্লিক করে পরবর্তী নির্দেশনা অনুসরণ করো।</div>
+        </div>
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ২. ক্লাস কবে থেকে শুরু হবে?
+                <span>▼</span>
+            </div>
+            <div class="answer">ক্লাসগুলো ১০ জানুয়ারি ২০২৫ থেকে শুরু হবে।</div>
+        </div>
+        <div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ৩. ক্লাসগুলো কিভাবে হবে?
+                <span>▼</span>
+            </div>
+            <div class="answer">ক্লাসগুলো হবে আমাদের এপ এবং ওয়েবসাইটে। এছাড়াও রেকর্ডেড ক্লাস, নোটস এবং কুইজ পাওয়া যাবে ওয়েবসাইট এবং এপ থেকেই।</div>
+        </div>
+    </div>
+<div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ৩. কোর্স ফি কিভাবে পরিশোধ করবো?
+                <span>▼</span>
+            </div>
+            <div class="answer">কোর্স ফি পরিশোধের জন্য ওয়েবসাইটে অনলাইন পেমেন্ট গেটওয়ে ব্যবহার করতে পারবে। আমরা বিকাশ, নগদ, রকেটসহ বিভিন্ন Mobile Banking Service এবং ক্রেডিট/ডেবিট কার্ডের মাধ্যমে পেমেন্ট গ্রহণ করি। এমনকি ক্রেডিট কার্ডের মাধ্যমে EMI সুবিধাও রয়েছে।</div>
+        </div>
+    </div>
+<div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ৩. লাইভ ক্লাসে না থাকতে পারলে কী হবে?
+                <span>▼</span>
+            </div>
+            <div class="answer">লাইভ ক্লাসে থাকতে না পারলে, ক্লাসের রেকর্ডিংও ওয়েবসাইটে দেখতে পারবে।</div>
+        </div>
+    </div>
+<div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ৩. কোর্স বাতিল বা রিফান্ড করা সম্ভব কি?
+                <span>▼</span>
+            </div>
+            <div class="answer">কোর্স কেনার পর তা বাতিল করা বা রিফান্ড নেওয়া সম্ভব নয়। তাই কেনার আগে নিশ্চিত হয়ে এনরোল করো।</div>
+        </div>
+    </div>
+<div class="faq-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                ৩. একটি কোর্স কেনার পর কতোদিন পর্যন্ত অ্যাক্সেস থাকবে?
+                <span>▼</span>
+            </div>
+            <div class="answer">তোমার কেনা প্যাকেজের ধরণ অনুযায়ী ১ মাস, ৩ মাস, ৬ মাস কিংবা ১ বছর পর্যন্ত অ্যাক্সেস থাকবে।</div>
+        </div>
+    </div>
+    <script>
+        function toggleAnswer(element) {
+            let answer = element.nextElementSibling;
+            let icon = element.querySelector("span");
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.textContent = "▼";
+            } else {
+                answer.style.display = "block";
+                icon.textContent = "▲";
+            }
+        }
+    </script>
 </body>
 </html>
