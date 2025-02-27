@@ -10,33 +10,89 @@
  বেস্ট অনলাইন লার্নিং
 বাংলাদেশে অনলাইন স্কুল কেমন?" "কোন অনলাইন স্কুল ভালো?"/>
     <title>ACS Future School - একাডেমিক প্রোগ্রাম ২০২৫</title>
-nav {
-    background: #007bff; /* মেনুর ব্যাকগ্রাউন্ড রং */
-    padding: 10px 0;
-    text-align: center;
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #6a11cb;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 1000;
 }
 
-nav ul {
+.menu-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
 }
 
-nav ul li {
-    display: inline;
+.menu li {
     margin: 0 15px;
 }
 
-nav ul li a {
+.menu a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
     font-weight: bold;
 }
 
-nav ul li a:hover {
-    color: yellow;
+.menu a:hover {
+    text-decoration: underline;
 }
+
+/* Mobile Responsive */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: #6a11cb;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+/* Section Styling */
+section {
+    padding: 100px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
 
     <style>
         body, html {
@@ -277,13 +333,19 @@ nav ul li a:hover {
   gtag('config', 'G-5YL3WSEFE0');
 </script>
 <body onclick="closePromo(event)">
-<nav>
-    <ul>
-        <li><a href="index.html">হোম</a></li>
-        <li><a href="courses.html">কোর্সসমূহ</a></li>
-        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
-        <li><a href="contact.html">যোগাযোগ</a></li>
-    </ul>
+<!-- ======= মেনু (Navigation Bar) ======= -->
+<nav class="navbar">
+    <div class="menu-container">
+        <a href="#" class="logo">AFS Discount</a>
+        <ul class="menu">
+            <li><a href="#home">হোম</a></li>
+            <li><a href="#courses">কোর্সসমূহ</a></li>
+            <li><a href="#teachers">শিক্ষক প্যানেল</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </div>
 </nav>
     <div class="background">
         <div class="bubble"></div>
