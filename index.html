@@ -10,6 +10,74 @@
  বেস্ট অনলাইন লার্নিং
 বাংলাদেশে অনলাইন স্কুল কেমন?" "কোন অনলাইন স্কুল ভালো?"/>
     <title>ACS Future School - একাডেমিক প্রোগ্রাম ২০২৫</title>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 15px 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #007bff;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
     <style>
         body, html {
             margin: 0;
@@ -249,6 +317,22 @@
   gtag('config', 'G-5YL3WSEFE0');
 </script>
 <body onclick="closePromo(event)">
+<nav class="navbar">
+        <div class="logo">AFS Discount</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#">হোম</a></li>
+            <li><a href="#">কোর্সসমূহ</a></li>
+            <li><a href="#">আমাদের সম্পর্কে</a></li>
+            <li><a href="#">যোগাযোগ</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+<script>
+    function toggleMenu() {
+        let navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+    }
+</script>
     <div class="background">
         <div class="bubble"></div>
         <div class="bubble"></div>
